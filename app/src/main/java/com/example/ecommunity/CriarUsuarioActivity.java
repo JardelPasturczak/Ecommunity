@@ -3,6 +3,7 @@ package com.example.ecommunity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -49,6 +50,36 @@ public class CriarUsuarioActivity extends AppCompatActivity {
 
         bt_criarUsuario_criarUsuario = (Button) findViewById(R.id.bt_criarUsuario_criarUsuario);
 
+        bt_criarUsuario_criarUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Usuario usuario = new Usuario();
+                usuario.setRazaoSocial(et_criarUsuario_razaoSocial.getText().toString());
+                usuario.setCnpj(et_criarUsuario_cnpj.getText().toString());
+
+                usuario.setNomeRepresentante(et_criarUsuario_nomeRepresentante.getText().toString());
+                usuario.setEmailRepresentante(et_criarUsuario_emailRepresentante.getText().toString());
+                usuario.setTelefoneRepresentante(et_criarUsuario_telefoneRepresentante.getText().toString());
+
+                usuario.setCep(et_criarUsuario_cep.getText().toString());
+                usuario.setCidade(et_criarUsuario_cidade.getText().toString());
+                usuario.setRua(et_criarUsuario_rua.getText().toString());
+                usuario.setNumero(et_criarUsuario_numero.getText().toString());
+
+                usuario.setSenha(et_criarUsuario_senha.getText().toString());
+            }
+        });
+
 
     }
 }
+
+
+
+
+
+
+
+
+
+
