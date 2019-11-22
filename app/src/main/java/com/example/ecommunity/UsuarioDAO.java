@@ -14,7 +14,6 @@ public class UsuarioDAO {
         banco = conexao.getWritableDatabase();
     }
 
-
     public long criarUsuario(Usuario usuario) {
         ContentValues cv = new ContentValues();
 
@@ -33,7 +32,6 @@ public class UsuarioDAO {
         cv.put("numero", usuario.getNumero());
 
         cv.put("senha", usuario.getSenha());
-
 
         return banco.insert("usuario", null, cv);
     }

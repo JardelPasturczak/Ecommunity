@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CriarUsuarioActivity extends AppCompatActivity {
 
@@ -25,6 +26,8 @@ public class CriarUsuarioActivity extends AppCompatActivity {
             et_criarUsuario_confirmarSenha;
 
     Button bt_criarUsuario_criarUsuario;
+
+    UsuarioDAO dao;
 
 
     @Override
@@ -50,6 +53,8 @@ public class CriarUsuarioActivity extends AppCompatActivity {
 
         bt_criarUsuario_criarUsuario = (Button) findViewById(R.id.bt_criarUsuario_criarUsuario);
 
+        dao = new UsuarioDAO(this);
+
         bt_criarUsuario_criarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +72,9 @@ public class CriarUsuarioActivity extends AppCompatActivity {
                 usuario.setNumero(et_criarUsuario_numero.getText().toString());
 
                 usuario.setSenha(et_criarUsuario_senha.getText().toString());
+
+                long id = dao.criarUsuario(usuario);
+                Toast.makeText(CriarUsuarioActivity.this, "Usuário inserido com id: " + id, Toast.LENGTH_SHORT).show();
             }
         });
 
