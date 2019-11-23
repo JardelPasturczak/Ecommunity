@@ -38,7 +38,6 @@ public class UsuarioDAO {
         return banco.insert("usuario", null, cv);
     }
 
-
     public List<Usuario> listarUsuario() {
         List<Usuario> usuarios = new ArrayList<>();
         Cursor cursor = banco.query("usuario", new String[]{
@@ -49,7 +48,6 @@ public class UsuarioDAO {
                         "senha"},
                 null, null, null, null, null);
 // CONSULTA POR ID - "id" + "= 2 "
-
 
         while (cursor.moveToNext()) {
             Usuario usuario = new Usuario();
