@@ -18,7 +18,7 @@ public class Conexao extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+/*
         db.execSQL("create table usuario(id integer primary key autoincrement, " +
                 "razaoSocial varchar (50)," +
                 "cnpj varchar (50)," +
@@ -30,11 +30,13 @@ public class Conexao extends SQLiteOpenHelper {
                 "rua varchar(50)," +
                 "numero varchar(50)," +
                 "senha varchar(50))");
+
+ */
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("drop table usuario");
     }
 }
 

@@ -25,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
         bt_login_entrar = (Button) findViewById(R.id.bt_login_entrar);
         bt_login_criarUsuario = (Button) findViewById(R.id.bt_login_criarUsuario);
 
+        bt_login_entrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, PerfilActivity.class);
+                startActivity(i);
+            }
+        });
+
         bt_login_criarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
