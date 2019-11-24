@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InserirMaterialActivity"></activity>
+        <activity android:name=".ColetarMaterialActivity"></activity>
+        <activity android:name=".InserirMaterialActivity" />
         <activity android:name=".TelaInicialActivity" />
         <activity android:name=".PerfilActivity" />
         <activity android:name=".CriarUsuarioActivity" />

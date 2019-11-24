@@ -36,6 +36,15 @@ public class TelaInicialActivity extends AppCompatActivity {
             }
         });
 
+        bt_inicial_coletarMaterial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TelaInicialActivity.this, ColetarMaterialActivity.class);
+                startActivity(i);
+
+            }
+        });
+
 
 
 

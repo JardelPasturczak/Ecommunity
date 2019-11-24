@@ -66,6 +66,12 @@ public class Material {
         this.qtdAluminio = qtdAluminio;
     }
 
+    @Override
+    public String toString() {
+        return "Data de coleta: " + dataLimite + " até às: " + horaLimite + "\n" + "Papel: " + qtdPapel;
+
+    }
+
    /*
     public Material(String dataLimite, String horaLimite, String razaoSocial, String cidade, int qtdPapel, int qtdVidro, int qtdOleo, int qtdAluminio) {
         super(razaoSocial, cidade);
