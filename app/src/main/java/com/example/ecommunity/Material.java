@@ -2,12 +2,21 @@ package com.example.ecommunity;
 
 public class Material {
 
-    String dataLimite;
-    String horaLimite;
-    private int qtdPapel;
-    private int qtdVidro;
-    private int qtdOleo;
-    private int qtdAluminio;
+    private int id;
+    private String dataLimite;
+    private String horaLimite;
+    private String qtdPapel;
+    private String qtdVidro;
+    private String qtdOleo;
+    private String qtdAluminio;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getDataLimite() {
         return dataLimite;
@@ -25,39 +34,39 @@ public class Material {
         this.horaLimite = horaLimite;
     }
 
-    public int getQtdPapel() {
+    public String getQtdPapel() {
         return qtdPapel;
     }
 
-    public void setQtdPapel(int qtdPapel) {
+    public void setQtdPapel(String qtdPapel) {
         this.qtdPapel = qtdPapel;
     }
 
-    public int getQtdVidro() {
+    public String getQtdVidro() {
         return qtdVidro;
     }
 
-    public void setQtdVidro(int qtdVidro) {
+    public void setQtdVidro(String qtdVidro) {
         this.qtdVidro = qtdVidro;
     }
 
-    public int getQtdOleo() {
+    public String getQtdOleo() {
         return qtdOleo;
     }
 
-    public void setQtdOleo(int qtdOleo) {
+    public void setQtdOleo(String qtdOleo) {
         this.qtdOleo = qtdOleo;
     }
 
-    public int getQtdAluminio() {
+    public String getQtdAluminio() {
         return qtdAluminio;
     }
 
-    public void setQtdAluminio(int qtdAluminio) {
+    public void setQtdAluminio(String qtdAluminio) {
         this.qtdAluminio = qtdAluminio;
     }
 
-    /*
+   /*
     public Material(String dataLimite, String horaLimite, String razaoSocial, String cidade, int qtdPapel, int qtdVidro, int qtdOleo, int qtdAluminio) {
         super(razaoSocial, cidade);
         this.dataLimite = dataLimite;

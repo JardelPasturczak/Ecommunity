@@ -11,11 +11,11 @@ import java.util.List;
 public class UsuarioDAO {
 
     private Conexao conexao;
-    private SQLiteDatabase banco;
+    private SQLiteDatabase ccc;
 
     public UsuarioDAO(Context context) {
         conexao = new Conexao(context);
-        banco = conexao.getWritableDatabase();
+        ccc = conexao.getWritableDatabase();
     }
 
     public long criarUsuario(Usuario usuario) {
@@ -35,12 +35,12 @@ public class UsuarioDAO {
 
         cv.put("senha", usuario.getSenha());
 
-        return banco.insert("usuario", null, cv);
+        return ccc.insert("usuario", null, cv);
     }
 
     public List<Usuario> listarUsuario() {
         List<Usuario> usuarios = new ArrayList<>();
-        Cursor cursor = banco.query("usuario", new String[]{
+        Cursor cursor = ccc.query("usuario", new String[]{
                         "id",
                         "razaoSocial", "cnpj",
                         "nomeRepresentante", "emailRepresentante", "telefoneRepresentante",
