@@ -28,6 +28,14 @@ public class TelaInicialActivity extends AppCompatActivity {
             }
         });
 
+        bt_inicial_inserirMaterial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TelaInicialActivity.this, InserirMaterialActivity.class);
+                startActivity(i);
+            }
+        });
+
 
 
 

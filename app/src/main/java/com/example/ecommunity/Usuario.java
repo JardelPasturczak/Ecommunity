@@ -16,6 +16,12 @@ public class Usuario implements Serializable {
     private String numero;
     private String senha;
 
+    /*
+    public Usuario(String razaoSocial, String cidade) {
+        this.razaoSocial = razaoSocial;
+        this.cidade = cidade;
+    }*/
+
     public int getId() {
         return id;
     }
