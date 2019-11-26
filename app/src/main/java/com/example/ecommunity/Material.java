@@ -68,8 +68,8 @@ public class Material {
 
     @Override
     public String toString() {
-        return "Data de coleta: " + dataLimite + " até às: " + horaLimite + "\n" + "Papel: " + qtdPapel;
-
+       return "Data de coleta: " + dataLimite + " até às: " + horaLimite + "\n" +
+                "Papel: " + qtdPapel + "kg - Vidro: " + qtdVidro + "kg - Óleo: " + qtdOleo + "l - Alumínio: " + qtdAluminio + "kg";
     }
 
    /*
