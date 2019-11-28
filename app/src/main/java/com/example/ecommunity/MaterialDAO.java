@@ -63,4 +63,21 @@ public class MaterialDAO {
     }
 
 
+    public void excluirMaterial(Material material) {
+        ccc.delete("material", "id= ?", new String[]{String.valueOf(material.getId())});
+    }
+
+    public void atualizarMaterial (Material material){
+        ContentValues cv = new ContentValues();
+
+        cv.put("dataLimite", material.getDataLimite());
+        cv.put("horaLimite", material.getHoraLimite());
+        cv.put("qtdPapel", material.getQtdPapel());
+        cv.put("qtdVidro", material.getQtdVidro());
+        cv.put("qtdOleo", material.getQtdOleo());
+        cv.put("qtdAluminio", material.getQtdAluminio());
+        ccc.update("material", cv, "id = ?", new String[]{String.valueOf(material.getId())});
+    }
+
+
 }
