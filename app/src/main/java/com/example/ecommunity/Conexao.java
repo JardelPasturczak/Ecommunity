@@ -1,6 +1,7 @@
 package com.example.ecommunity;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -44,6 +45,18 @@ public class Conexao extends SQLiteOpenHelper {
         db.execSQL("drop table usuario");
 
 
+    }
+
+
+    public String validarLogin(String cnpj, String senha) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM usuario WHERE cnpj=? AND senha=?", new String[]{cnpj, senha});
+
+        if (c.getCount() > 0) {
+            return "OK";
+        } else {
+            return "ERRO";
+        }
     }
 }
 
