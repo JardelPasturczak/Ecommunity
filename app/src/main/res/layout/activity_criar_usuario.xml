@@ -6,16 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".CriarUsuarioActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Criar Usuario"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"
+    <Button
+        android:id="@+id/botaoTop"
+        android:layout_width="414dp"
+        android:layout_height="60dp"
+        android:background="@drawable/iconretazul"
+        android:text="Cadastro"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +27,8 @@
         android:text="Empresa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/botaoTop"
+        android:textColor="#2196F3"/>
 
     <EditText
         android:id="@+id/et_criarUsuario_razaoSocial"
@@ -71,7 +69,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_criarUsuario_cnpj" />
+        app:layout_constraintTop_toBottomOf="@+id/et_criarUsuario_cnpj"
+        android:textColor="#2196F3"/>
 
     <EditText
         android:id="@+id/et_criarUsuario_nomeRepresentante"
@@ -123,7 +122,8 @@
         android:layout_marginTop="16dp"
         android:text="Endereço"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_criarUsuario_telefoneRepresentante" />
+        app:layout_constraintTop_toBottomOf="@+id/et_criarUsuario_telefoneRepresentante"
+        android:textColor="#2196F3"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -198,7 +198,8 @@
         android:text="Senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:textColor="#2196F3"/>
 
     <EditText
         android:id="@+id/et_criarUsuario_senha"
@@ -230,14 +231,17 @@
 
     <Button
         android:id="@+id/bt_criarUsuario_criarUsuario"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/iconbotaoazul"
         android:text="INSERIR USUÁRIO"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_criarUsuario_confirmarSenha" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
