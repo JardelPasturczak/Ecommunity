@@ -3,6 +3,7 @@ package com.example.ecommunity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -15,6 +16,7 @@ public class PerfilActivity extends AppCompatActivity {
     private UsuarioDAO dao;
     private List<Usuario> usuarios;
     private List<Usuario> usuariosFiltrados = new ArrayList<>();
+    Usuario usr = new Usuario();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +27,13 @@ public class PerfilActivity extends AppCompatActivity {
 
         dao = new UsuarioDAO(this);
 
-        usuarios = dao.listarUsuario();
+        usr = dao.listarUsuario2();
+        // usuarios = dao.listarUsuario(); // LISTAR TODOS OS USUARIOS
 
-        usuariosFiltrados.addAll(usuarios);
-        ArrayAdapter<Usuario> adapter = new ArrayAdapter<>(this,  android.R.layout.simple_list_item_1, usuarios);
+        //usuariosFiltrados.addAll(usuarios); // LISTAR TODOS OS USUARIOS
+        usuariosFiltrados.add(usr);
+
+        ArrayAdapter<Usuario> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, usuariosFiltrados);
         listView.setAdapter(adapter);
-
-
     }
 }

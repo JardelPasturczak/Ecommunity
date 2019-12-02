@@ -12,6 +12,8 @@ public class UsuarioDAO {
 
     private Conexao conexao;
     private SQLiteDatabase ccc;
+  //  private int idAtual = 3;
+
 
     public UsuarioDAO(Context context) {
         conexao = new Conexao(context);
@@ -38,6 +40,43 @@ public class UsuarioDAO {
         return ccc.insert("usuario", null, cv);
     }
 
+
+    public Usuario listarUsuario2 (){
+        Usuario usr = new Usuario();
+        Cursor cursor = ccc.query("usuario", new String[]{
+                        "id",
+                        "razaoSocial", "cnpj",
+                        "nomeRepresentante", "emailRepresentante", "telefoneRepresentante",
+                        "cep", "cidade", "rua", "numero",
+                        "senha"},
+                null  , null, null, null, null);
+// CONSULTA POR ID - "id" + "= 2 "  ------ "id= " + String.valueOf(idAtual)
+
+        while (cursor.moveToNext()) {
+
+            usr.setId(cursor.getInt(0));
+
+            usr.setRazaoSocial(cursor.getString(1));
+            usr.setCnpj(cursor.getString(2));
+
+            usr.setNomeRepresentante(cursor.getString(3));
+            usr.setEmailRepresentante(cursor.getString(4));
+            usr.setTelefoneRepresentante(cursor.getString(5));
+
+            usr.setCep(cursor.getString(6));
+            usr.setCidade(cursor.getString(7));
+            usr.setRua(cursor.getString(8));
+            usr.setNumero(cursor.getString(9));
+
+            usr.setSenha(cursor.getString(10));
+
+        }
+        return usr;
+
+
+    }
+
+
     public List<Usuario> listarUsuario() {
         List<Usuario> usuarios = new ArrayList<>();
         Cursor cursor = ccc.query("usuario", new String[]{
@@ -46,8 +85,8 @@ public class UsuarioDAO {
                         "nomeRepresentante", "emailRepresentante", "telefoneRepresentante",
                         "cep", "cidade", "rua", "numero",
                         "senha"},
-                null, null, null, null, null);
-// CONSULTA POR ID - "id" + "= 2 "
+                null  , null, null, null, null);
+// CONSULTA POR ID - "id" + "= 2 "  ------ "id= " + String.valueOf(idAtual)
 
         while (cursor.moveToNext()) {
             Usuario usuario = new Usuario();

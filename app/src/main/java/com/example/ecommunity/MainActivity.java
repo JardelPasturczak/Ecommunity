@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     Conexao cxn;
 
+    int idAtual;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,14 +49,12 @@ public class MainActivity extends AppCompatActivity {
 
                     String res = cxn.validarLogin(usuario, senha);
 
-                    if (res.equals("OK")){
+                    if (res.equals("OK")) {
                         Intent i = new Intent(MainActivity.this, TelaInicialActivity.class);
                         startActivity(i);
-                    } else{
+                    } else {
                         Toast.makeText(MainActivity.this, "Usuário ou senha incorretos", Toast.LENGTH_SHORT).show();
                     }
-
-
                 }
 
 

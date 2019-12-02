@@ -112,7 +112,9 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString(){
-        return "Empresa: " + razaoSocial + " - Cidade: " + cidade;
+        return "Empresa: " + razaoSocial + "       Cidade: " + cidade + "\n" +
+                "Representante: " + nomeRepresentante + "\n" +
+                "Email: " + emailRepresentante + "      Telefone: " +telefoneRepresentante;
 
 
     }

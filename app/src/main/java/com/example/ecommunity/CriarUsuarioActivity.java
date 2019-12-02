@@ -2,6 +2,7 @@ package com.example.ecommunity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -75,6 +76,10 @@ public class CriarUsuarioActivity extends AppCompatActivity {
 
                 long id = dao.criarUsuario(usuario);
                 Toast.makeText(CriarUsuarioActivity.this, "Usuário inserido com id: " + id, Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(CriarUsuarioActivity.this, MainActivity.class);
+                startActivity(i);
+
             }
         });
 
