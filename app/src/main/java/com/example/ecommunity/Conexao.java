@@ -9,13 +9,14 @@ import androidx.annotation.Nullable;
 
 public class Conexao extends SQLiteOpenHelper {
 
-    private static final String name = "ccc.db";
+    private static final String name = "abc.db";
     private static final int version = 1;
 
 
     public Conexao(@Nullable Context context) {
         super(context, name, null, version);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -32,6 +33,7 @@ public class Conexao extends SQLiteOpenHelper {
                 "senha varchar(50))");
 
         db.execSQL("create table material(id integer primary key autoincrement, " +
+                "idUsuario int," +
                 "dataLimite varchar (50)," +
                 "horaLimite varchar (50)," +
                 "qtdPapel varchar (50)," +
@@ -44,7 +46,16 @@ public class Conexao extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table usuario");
 
+    }
 
+    public int pegarId(String cnpj, String senha) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT id FROM usuario WHERE cnpj=? AND senha=?", new String[]{cnpj, senha});
+
+        c.moveToFirst();
+        int id = c.getInt(0);
+
+        return id;
     }
 
 
@@ -58,6 +69,8 @@ public class Conexao extends SQLiteOpenHelper {
             return "ERRO";
         }
     }
+
+
 }
 
 

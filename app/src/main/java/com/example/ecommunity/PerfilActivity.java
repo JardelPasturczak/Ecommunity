@@ -18,6 +18,10 @@ public class PerfilActivity extends AppCompatActivity {
     private List<Usuario> usuariosFiltrados = new ArrayList<>();
     Usuario usr = new Usuario();
 
+    Conexao cxn;
+
+    int id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +31,11 @@ public class PerfilActivity extends AppCompatActivity {
 
         dao = new UsuarioDAO(this);
 
-        usr = dao.listarUsuario2();
+        cxn = new Conexao(this);
+
+        // int idAtual = cxn.pegarId(id);
+
+        usr = dao.listarUsuario2(1);
         // usuarios = dao.listarUsuario(); // LISTAR TODOS OS USUARIOS
 
         //usuariosFiltrados.addAll(usuarios); // LISTAR TODOS OS USUARIOS

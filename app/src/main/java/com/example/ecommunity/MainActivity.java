@@ -17,8 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
     Conexao cxn;
 
-    int idAtual;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
         bt_login_entrar = (Button) findViewById(R.id.bt_login_entrar);
         bt_login_criarUsuario = (Button) findViewById(R.id.bt_login_criarUsuario);
+
+        String usuario = et_login_usuario.getText().toString();
+        String senha = et_login_senha.getText().toString();
+
+
 
         bt_login_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
                 } else {
 
                     String res = cxn.validarLogin(usuario, senha);
+                    int idAtual = cxn.pegarId(usuario, senha);
+
+                    System.out.println("------------------------------ ID: " + idAtual);
 
                     if (res.equals("OK")) {
                         Intent i = new Intent(MainActivity.this, TelaInicialActivity.class);
@@ -56,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Usuário ou senha incorretos", Toast.LENGTH_SHORT).show();
                     }
                 }
-
-
             }
         });
 
@@ -68,6 +72,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
     }
 }

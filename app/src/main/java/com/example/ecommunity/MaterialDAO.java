@@ -11,11 +11,11 @@ import java.util.List;
 public class MaterialDAO {
 
     private Conexao conexao;
-    private SQLiteDatabase ccc;
+    private SQLiteDatabase abc;
 
     public MaterialDAO(Context context) {
         conexao = new Conexao(context);
-        ccc = conexao.getWritableDatabase();
+        abc = conexao.getWritableDatabase();
     }
 
 
@@ -28,14 +28,16 @@ public class MaterialDAO {
         cv.put("qtdVidro", material.getQtdVidro());
         cv.put("qtdOleo", material.getQtdOleo());
         cv.put("qtdAluminio", material.getQtdAluminio());
+        cv.put("idUsuario", material.getIdUsuario());
 
-        return ccc.insert("material", null, cv);
+        return abc.insert("material", null, cv);
     }
 
     public List<Material> listarMaterial() {
         List<Material> materiais = new ArrayList<>();
-        Cursor cursor = ccc.query("material", new String[]{
+        Cursor cursor = abc.query("material", new String[]{
                         "id",
+                        "idUsuario",
                         "dataLimite",
                         "horaLimite",
                         "qtdPapel",
@@ -50,12 +52,14 @@ public class MaterialDAO {
 
             material.setId(cursor.getInt(0));
 
-            material.setDataLimite(cursor.getString(1));
-            material.setHoraLimite(cursor.getString(2));
-            material.setQtdPapel(cursor.getString(3));
-            material.setQtdVidro(cursor.getString(4));
-            material.setQtdOleo(cursor.getString(5));
-            material.setQtdAluminio(cursor.getString(6));
+            material.setIdUsuario(cursor.getInt(1));
+
+            material.setDataLimite(cursor.getString(2));
+            material.setHoraLimite(cursor.getString(3));
+            material.setQtdPapel(cursor.getString(4));
+            material.setQtdVidro(cursor.getString(5));
+            material.setQtdOleo(cursor.getString(6));
+            material.setQtdAluminio(cursor.getString(7));
 
             materiais.add(material);
         }
@@ -64,10 +68,10 @@ public class MaterialDAO {
 
 
     public void excluirMaterial(Material material) {
-        ccc.delete("material", "id= ?", new String[]{String.valueOf(material.getId())});
+        abc.delete("material", "id= ?", new String[]{String.valueOf(material.getId())});
     }
 
-    public void atualizarMaterial (Material material){
+    public void atualizarMaterial(Material material) {
         ContentValues cv = new ContentValues();
 
         cv.put("dataLimite", material.getDataLimite());
@@ -76,7 +80,7 @@ public class MaterialDAO {
         cv.put("qtdVidro", material.getQtdVidro());
         cv.put("qtdOleo", material.getQtdOleo());
         cv.put("qtdAluminio", material.getQtdAluminio());
-        ccc.update("material", cv, "id = ?", new String[]{String.valueOf(material.getId())});
+        abc.update("material", cv, "id = ?", new String[]{String.valueOf(material.getId())});
     }
 
 

@@ -9,6 +9,7 @@ public class Material {
     private String qtdVidro;
     private String qtdOleo;
     private String qtdAluminio;
+    private int idUsuario;
 
     public int getId() {
         return id;
@@ -66,14 +67,23 @@ public class Material {
         this.qtdAluminio = qtdAluminio;
     }
 
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     @Override
     public String toString() {
-       return "Data de coleta: " + dataLimite +
-               " até às: " + horaLimite + "\n" +
+        return "Id empresa: " +idUsuario + "\n" +
+                "Data de coleta: " + dataLimite +
+                " até às: " + horaLimite + "\n" +
                 "Papel: " + qtdPapel + " kg\n" +
-               "Vidro: " + qtdVidro + " kg\n" +
-               "Óleo: " + qtdOleo + " l\n" +
-               "Alumínio: " + qtdAluminio + " kg\n";
+                "Vidro: " + qtdVidro + " kg\n" +
+                "Óleo: " + qtdOleo + " l\n" +
+                "Alumínio: " + qtdAluminio + " kg\n";
     }
 
    /*

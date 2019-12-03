@@ -11,13 +11,15 @@ import java.util.List;
 public class UsuarioDAO {
 
     private Conexao conexao;
-    private SQLiteDatabase ccc;
-  //  private int idAtual = 3;
+    private SQLiteDatabase abc;
+    int idAtual;
+
+
 
 
     public UsuarioDAO(Context context) {
         conexao = new Conexao(context);
-        ccc = conexao.getWritableDatabase();
+        abc = conexao.getWritableDatabase();
     }
 
     public long criarUsuario(Usuario usuario) {
@@ -37,19 +39,20 @@ public class UsuarioDAO {
 
         cv.put("senha", usuario.getSenha());
 
-        return ccc.insert("usuario", null, cv);
+        return abc.insert("usuario", null, cv);
     }
 
 
-    public Usuario listarUsuario2 (){
+    public Usuario listarUsuario2(int id) {
+
         Usuario usr = new Usuario();
-        Cursor cursor = ccc.query("usuario", new String[]{
+        Cursor cursor = abc.query("usuario", new String[]{
                         "id",
                         "razaoSocial", "cnpj",
                         "nomeRepresentante", "emailRepresentante", "telefoneRepresentante",
                         "cep", "cidade", "rua", "numero",
                         "senha"},
-                null  , null, null, null, null);
+                "id" + "= " + id, null, null, null, null);
 // CONSULTA POR ID - "id" + "= 2 "  ------ "id= " + String.valueOf(idAtual)
 
         while (cursor.moveToNext()) {
@@ -79,13 +82,13 @@ public class UsuarioDAO {
 
     public List<Usuario> listarUsuario() {
         List<Usuario> usuarios = new ArrayList<>();
-        Cursor cursor = ccc.query("usuario", new String[]{
+        Cursor cursor = abc.query("usuario", new String[]{
                         "id",
                         "razaoSocial", "cnpj",
                         "nomeRepresentante", "emailRepresentante", "telefoneRepresentante",
                         "cep", "cidade", "rua", "numero",
                         "senha"},
-                null  , null, null, null, null);
+                null, null, null, null, null);
 // CONSULTA POR ID - "id" + "= 2 "  ------ "id= " + String.valueOf(idAtual)
 
         while (cursor.moveToNext()) {

@@ -24,6 +24,8 @@ public class InserirMaterialActivity extends AppCompatActivity {
 
     private Material material = null;
 
+    private int idUsuario;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class InserirMaterialActivity extends AppCompatActivity {
         et_inserirMaterial_qtdOleo = (EditText) findViewById(R.id.et_inserirMaterial_qtdOleo);
         et_inserirMaterial_qtdAluminio = (EditText) findViewById(R.id.et_inserirMaterial_qtdAluminio);
 
+        idUsuario = 1;
 
         bt_inserirMaterial_Inserir = (Button) findViewById(R.id.bt_inserirMaterial_Inserir);
 
@@ -52,6 +55,8 @@ public class InserirMaterialActivity extends AppCompatActivity {
             et_inserirMaterial_qtdVidro.setText(material.getQtdVidro());
             et_inserirMaterial_qtdOleo.setText(material.getQtdOleo());
             et_inserirMaterial_qtdAluminio.setText(material.getQtdAluminio());
+
+
         }
 
 
@@ -68,6 +73,8 @@ public class InserirMaterialActivity extends AppCompatActivity {
                     material.setQtdVidro(et_inserirMaterial_qtdVidro.getText().toString());
                     material.setQtdOleo(et_inserirMaterial_qtdOleo.getText().toString());
                     material.setQtdAluminio(et_inserirMaterial_qtdAluminio.getText().toString());
+                    material.setIdUsuario(idUsuario);
+
 
                     long id = dao.inserirMaterial(material);
                     Toast.makeText(InserirMaterialActivity.this, "Material inserido com id: " + id, Toast.LENGTH_SHORT).show();
